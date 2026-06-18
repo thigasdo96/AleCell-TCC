@@ -1,0 +1,237 @@
+@using AleCell.UI.DTOs
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Menu = "Dashboard";
+
+    int totalProdutos   = ViewBag.TotalProdutos   is int tp ? tp : 0;
+    int totalCategorias = ViewBag.TotalCategorias is int tc ? tc : 0;
+    int totalDestaques  = ViewBag.TotalDestaques  is int td ? td : 0;
+    int totalEstoque    = ViewBag.TotalEstoque    is int te ? te : 0;
+    bool erroApi        = ViewBag.ErroApi == true;
+
+    var ultimos  = ViewBag.UltimosProdutos as List<ProdutoDto> ?? new();
+    var criticos = ViewBag.EstoqueCritico  as List<ProdutoDto> ?? new();
+}
+
+<div class="admin-page-header">
+    <div>
+        <h1 class="admin-titulo">Dashboard</h1>
+        <p class="admin-subtitulo">Visão geral da AleCell</p>
+    </div>
+    <div style="display:flex;gap:.75rem;align-items:center">
+        <span style="color:var(--texto-faint);font-size:.78rem">
+            Atualizado: @DateTime.Now.ToString("HH:mm")
+        </span>
+        <a href="/Admin" class="btn btn-outline" style="padding:.4rem .9rem;font-size:.8rem">Atualizar</a>
+    </div>
+</div>
+
+@if (erroApi)
+{
+    <div class="alert alert-aviso" style="margin-bottom:1.5rem">
+        <strong>API indisponível.</strong> Verifique se o servidor AleCell.API está rodando em
+        <code style="background:rgba(0,0,0,0.3);padding:.1rem .4rem;border-radius:4px">localhost:5058</code>.
+        Os dados abaixo podem estar desatualizados.
+    </div>
+}
+
+<!-- ---- STATS ---- -->
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="stat-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--primario)" stroke-width="1.5">
+                <rect x="5" y="2" width="14" height="20" rx="3"/>
+                <rect x="8" y="7" width="8" height="7" rx="1"/>
+                <circle cx="12" cy="18" r="1"/>
+            </svg>
+        </div>
+        <div class="stat-valor">@totalProdutos</div>
+        <div class="stat-label">Produtos</div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--primario)" stroke-width="1.5">
+                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+                <line x1="7" y1="7" x2="7.01" y2="7"/>
+            </svg>
+        </div>
+        <div class="stat-valor">@totalCategorias</div>
+        <div class="stat-label">Categorias</div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--cta)" stroke-width="1.5">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+        </div>
+        <div class="stat-valor" style="color:var(--cta)">@totalDestaques</div>
+        <div class="stat-label">Em Destaque</div>
+    </div>
+
+    <div class="stat-card stat-receita">
+        <div class="stat-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--cta)" stroke-width="1.5">
+                <line x1="12" y1="1" x2="12" y2="23"/>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+        </div>
+        <div class="stat-valor" style="color:var(--cta)">@totalEstoque</div>
+        <div class="stat-label">Total em Estoque</div>
+    </div>
+</div>
+
+<!-- ---- TABELAS ---- -->
+<div class="dashboard-grid">
+
+    <!-- Últimos produtos -->
+    <div class="admin-card" style="padding:0;overflow:hidden">
+        <div class="admin-card-header" style="padding:1rem 1.25rem;border-bottom:1px solid var(--borda)">
+            <h3>Últimos Produtos</h3>
+            <a asp-controller="Produtos" asp-action="Index"
+               class="btn" style="padding:.35rem .75rem;font-size:.78rem">Ver Todos</a>
+        </div>
+        <div class="tabela-wrapper">
+            @if (ultimos.Any())
+            {
+                <table class="tabela">
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Categoria</th>
+                            <th>Estoque</th>
+                            <th>Preço</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var p in ultimos)
+                        {
+                            <tr>
+                                <td>
+                                    <div style="display:flex;align-items:center;gap:.65rem">
+                                        @if (!string.IsNullOrEmpty(p.Foto))
+                                        {
+                                            <img src="@p.Foto" alt="@p.Nome"
+                                                 style="width:36px;height:36px;object-fit:cover;border-radius:6px;border:1px solid var(--borda);flex-shrink:0" />
+                                        }
+                                        else
+                                        {
+                                            <div style="width:36px;height:36px;background:var(--fundo-card-hover);border-radius:6px;border:1px solid var(--borda);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--texto-faint)" stroke-width="1.5">
+                                                    <rect x="5" y="2" width="14" height="20" rx="3"/><circle cx="12" cy="17" r="1"/>
+                                                </svg>
+                                            </div>
+                                        }
+                                        <span style="color:var(--texto);font-weight:500;font-size:.875rem">@p.Nome</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="background:var(--primario-bg);color:var(--primario);padding:.15rem .5rem;border-radius:4px;font-size:.74rem;font-weight:600">
+                                        @(p.CategoriaNome ?? "—")
+                                    </span>
+                                </td>
+                                <td>
+                                    <span style="color:@(p.Qtde > 5 ? "var(--primario)" : p.Qtde > 0 ? "var(--cta)" : "#ff5252");font-weight:700;font-family:'Orbitron',sans-serif;font-size:.85rem">
+                                        @p.Qtde
+                                    </span>
+                                </td>
+                                <td style="font-family:'Orbitron',sans-serif;font-size:.8rem;color:var(--texto)">
+                                    R$ @p.ValorVenda.ToString("N2")
+                                </td>
+                                <td>
+                                    <div class="acoes-tabela">
+                                        <a asp-controller="Produtos" asp-action="Edit" asp-route-id="@p.Id"
+                                           class="btn" style="padding:.28rem .6rem;font-size:.75rem">Editar</a>
+                                        <a asp-controller="Home" asp-action="Produto" asp-route-id="@p.Id"
+                                           class="btn btn-outline" style="padding:.28rem .6rem;font-size:.75rem" target="_blank">Ver</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <div style="padding:2rem;text-align:center;color:var(--texto-faint);font-size:.875rem">
+                    Nenhum produto cadastrado ainda.
+                    <br /><a asp-controller="Produtos" asp-action="Create" class="btn" style="margin-top:.75rem;display:inline-block">+ Cadastrar Produto</a>
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- Estoque crítico -->
+    <div class="admin-card" style="padding:0;overflow:hidden">
+        <div class="admin-card-header" style="padding:1rem 1.25rem;border-bottom:1px solid var(--borda)">
+            <h3 style="color:var(--cta)">Estoque Crítico</h3>
+            <a asp-controller="Produtos" asp-action="Index"
+               class="btn btn-cta" style="padding:.35rem .75rem;font-size:.78rem">Gerenciar</a>
+        </div>
+        <div class="tabela-wrapper">
+            @if (criticos.Any())
+            {
+                <table class="tabela">
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Qtde</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var p in criticos)
+                        {
+                            <tr>
+                                <td style="color:var(--texto);font-weight:500;font-size:.875rem">@p.Nome</td>
+                                <td>
+                                    <span style="color:@(p.Qtde == 0 ? "#ff5252" : "var(--cta)");font-weight:700;font-family:'Orbitron',sans-serif;font-size:.88rem">
+                                        @p.Qtde
+                                    </span>
+                                    @if (p.Qtde == 0)
+                                    {
+                                        <span style="display:block;font-size:.7rem;color:#ff5252">SEM ESTOQUE</span>
+                                    }
+                                </td>
+                                <td>
+                                    <a asp-controller="Produtos" asp-action="Edit" asp-route-id="@p.Id"
+                                       class="btn btn-cta" style="padding:.28rem .65rem;font-size:.75rem">Repor</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <div style="padding:2rem;text-align:center">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primario)" stroke-width="1.5" style="margin:0 auto .75rem;display:block">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                        <polyline points="22 4 12 14.01 9 11.01"/>
+                    </svg>
+                    <p style="color:var(--primario);font-size:.875rem;font-weight:600">Estoque OK</p>
+                    <p style="color:var(--texto-faint);font-size:.8rem">Nenhum produto com estoque crítico.</p>
+                </div>
+            }
+        </div>
+    </div>
+
+</div>
+
+<!-- ATALHOS RÁPIDOS -->
+<div class="admin-card" style="margin-top:1.5rem">
+    <h3 style="margin-bottom:1rem;font-size:.875rem;color:var(--texto-faint);text-transform:uppercase;letter-spacing:.06em;font-family:'Inter',sans-serif;font-weight:600">Ações Rápidas</h3>
+    <div style="display:flex;gap:.75rem;flex-wrap:wrap">
+        <a asp-controller="Produtos" asp-action="Create" class="btn">+ Novo Produto</a>
+        <a asp-controller="Categorias" asp-action="Create" class="btn">+ Nova Categoria</a>
+        <a asp-controller="Produtos" asp-action="Index" class="btn btn-outline">Ver Produtos</a>
+        <a asp-controller="Categorias" asp-action="Index" class="btn btn-outline">Ver Categorias</a>
+        <a asp-controller="Home" asp-action="Index" class="btn btn-outline" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:.25rem"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Ver Loja
+        </a>
+    </div>
+</div>

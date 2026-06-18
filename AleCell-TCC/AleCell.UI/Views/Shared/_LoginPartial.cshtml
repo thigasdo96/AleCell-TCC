@@ -1,0 +1,78 @@
+@inject IAuthService AuthService
+@{
+    string foto = AuthService.GetUserFoto();
+    bool temFoto = !string.IsNullOrEmpty(foto);
+    string primeiroNome = AuthService.GetUserName().Split(' ')[0];
+    string inicial = primeiroNome.Length > 0 ? primeiroNome[0].ToString().ToUpper() : "U";
+}
+
+@if (AuthService.IsAuthenticated())
+{
+    <div class="nav-user-menu">
+        <button class="nav-user-toggle" onclick="toggleUserMenu(this)">
+            @if (temFoto)
+            {
+                <img src="@foto" class="nav-user-avatar" alt="avatar" />
+            }
+            else
+            {
+                <div class="nav-user-avatar nav-user-inicial">@inicial</div>
+            }
+            <span class="nav-user-name">@primeiroNome</span>
+            <span class="nav-user-caret">▾</span>
+        </button>
+        <ul class="nav-user-dropdown">
+            @if (AuthService.GetUserPerfil() == "Administrador")
+            {
+                <li>
+                    <a asp-controller="Admin" asp-action="Index">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+                        Painel Admin
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Home" asp-action="Index">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                        Ver Loja
+                    </a>
+                </li>
+                <li class="separator"></li>
+            }
+            <li>
+                <a asp-controller="Perfil" asp-action="Index">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    Meu Perfil
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Carrinho" asp-action="Index">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                    Meu Carrinho
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Auth" asp-action="Logout" style="color:#ff6b6b">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                    Sair
+                </a>
+            </li>
+        </ul>
+    </div>
+}
+else
+{
+    <a asp-controller="Auth" asp-action="Login" class="btn-login">Login</a>
+    <a asp-controller="Auth" asp-action="Registro" class="btn-registro">Cadastrar</a>
+}
+
+<script>
+function toggleUserMenu(btn) {
+    btn.parentElement.classList.toggle('open');
+    document.addEventListener('click', function closeMenu(e) {
+        if (!btn.parentElement.contains(e.target)) {
+            btn.parentElement.classList.remove('open');
+            document.removeEventListener('click', closeMenu);
+        }
+    });
+}
+</script>

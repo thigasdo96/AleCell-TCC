@@ -1,0 +1,78 @@
+@model CategoriaVM
+@{
+    ViewData["Title"] = "Editar Categoria";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Menu = "Categorias";
+}
+
+<div class="admin-page-header">
+    <div>
+        <h1 class="admin-titulo">Editar Categoria</h1>
+        <p class="admin-subtitulo">@Model.Nome</p>
+    </div>
+    <a asp-action="Index" class="btn btn-outline">← Voltar</a>
+</div>
+
+<div class="admin-card" style="max-width:620px">
+    <form asp-action="Edit" method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="Id" />
+        <div asp-validation-summary="ModelOnly" class="validation-summary-errors" hidden></div>
+
+        <div class="form-group">
+            <label asp-for="Nome"></label>
+            <input asp-for="Nome" class="form-control" />
+            <span asp-validation-for="Nome" class="field-error"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Cor"></label>
+            <div style="display:flex;gap:.75rem;align-items:center">
+                <input asp-for="Cor" class="form-control" id="corInput" />
+                <div id="corPreview" style="width:40px;height:40px;border-radius:var(--radius);background:@Model.Cor;border:1px solid var(--borda);flex-shrink:0"></div>
+            </div>
+            <span asp-validation-for="Cor" class="field-error"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Foto"></label>
+            @if (!string.IsNullOrEmpty(Model.FotoUrl))
+            {
+                <div style="margin-bottom:.75rem;display:flex;align-items:center;gap:1rem">
+                    <img src="@Model.FotoUrl" style="width:70px;height:70px;object-fit:contain;border-radius:var(--radius);border:1px solid var(--borda);background:var(--fundo-card-hover);padding:.25rem" />
+                    <span style="color:var(--texto-muted);font-size:.85rem">Logo atual</span>
+                </div>
+            }
+            <input asp-for="Foto" type="file" class="form-control" accept="image/*" id="fotoInput" />
+            <p style="color:var(--texto-faint);font-size:.8rem;margin-top:.3rem">Deixe em branco para manter a foto atual</p>
+            <div id="fotoPreviewContainer" style="display:none;margin-top:.75rem">
+                <img id="fotoPreview" style="max-height:120px;border-radius:var(--radius);border:1px solid var(--primario)" />
+            </div>
+        </div>
+
+        <div style="display:flex;gap:1rem;margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--borda)">
+            <button type="submit" class="btn">Salvar Alterações</button>
+            <a asp-action="Index" class="btn btn-outline">Cancelar</a>
+            <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger" style="margin-left:auto">Excluir</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+<partial name="_ValidationScriptsPartial" />
+<script>
+document.getElementById('corInput').addEventListener('input', function() {
+    document.getElementById('corPreview').style.background = this.value;
+});
+document.getElementById('fotoInput').addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById('fotoPreview').src = e.target.result;
+            document.getElementById('fotoPreviewContainer').style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+    }
+});
+</script>
+}

@@ -1,0 +1,207 @@
+@model HomeVM
+@{
+    ViewData["Title"] = "AleCell — Celulares e Consertos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <h1 class="hero-titulo">ALECELL</h1>
+        <p class="hero-subtitulo">Os melhores celulares Apple e Xiaomi com os melhores preços da região</p>
+        <div class="hero-botoes">
+            <a asp-controller="Home" asp-action="Catalogo" asp-route-categoriaId="1" class="btn">Apple</a>
+            <a asp-controller="Home" asp-action="Catalogo" asp-route-categoriaId="2" class="btn btn-amarelo">Xiaomi</a>
+            <a asp-controller="Home" asp-action="Catalogo" class="btn btn-outline">Ver Catálogo</a>
+        </div>
+    </div>
+
+    <!-- badges: todos os SVGs com width/height="24" explícito -->
+    <div class="hero-badges">
+        <div class="badge-item">
+            <svg class="badge-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="3" width="15" height="13" rx="2"/>
+                <path d="M16 8h4l3 3v4h-7V8z"/>
+                <circle cx="5.5" cy="18.5" r="2.5"/>
+                <circle cx="18.5" cy="18.5" r="2.5"/>
+            </svg>
+            <span>Frete Grátis</span>
+        </div>
+        <div class="badge-item">
+            <svg class="badge-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="4" width="22" height="16" rx="2"/>
+                <line x1="1" y1="10" x2="23" y2="10"/>
+            </svg>
+            <span>12x sem juros</span>
+        </div>
+        <div class="badge-item">
+            <svg class="badge-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+            <span>Assistência Técnica</span>
+        </div>
+        <div class="badge-item">
+            <svg class="badge-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            <span>Garantia Oficial</span>
+        </div>
+    </div>
+</section>
+
+<!-- MARCAS / CATEGORIAS -->
+@if (Model.Categorias.Any())
+{
+    <section class="container">
+        <div class="marcas-section">
+            <h2 class="section-titulo">Escolha sua Marca</h2>
+            <div class="marcas-grid">
+                @foreach (var cat in Model.Categorias.Take(4))
+                {
+                    <a asp-controller="Home" asp-action="Catalogo" asp-route-categoriaId="@cat.Id" class="marca-card">
+                        @if (!string.IsNullOrEmpty(cat.Foto))
+                        {
+                            <img src="@cat.Foto" alt="@cat.Nome" class="marca-foto" />
+                        }
+                        else
+                        {
+                            <!-- SVG de celular padronizado para as marcas -->
+                            <div class="marca-icon-box" style="border-color:@cat.Cor">
+                                <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="11" y="3" width="30" height="46" rx="5" fill="rgba(0,0,0,0.35)" stroke="@cat.Cor" stroke-width="1.5"/>
+                                    <rect x="15" y="9" width="22" height="30" rx="2" fill="rgba(0,0,0,0.5)"/>
+                                    <circle cx="26" cy="44" r="2.5" fill="@cat.Cor" opacity="0.7"/>
+                                    <rect x="21" y="5" width="10" height="1.5" rx="0.75" fill="@cat.Cor" opacity="0.4"/>
+                                    <rect x="17" y="14" width="18" height="1" rx="0.5" fill="@cat.Cor" opacity="0.2"/>
+                                    <rect x="17" y="18" width="12" height="1" rx="0.5" fill="@cat.Cor" opacity="0.15"/>
+                                </svg>
+                            </div>
+                        }
+                        <h3>@cat.Nome</h3>
+                        <span class="btn" style="background:transparent;border-color:@cat.Cor;color:@cat.Cor;font-size:.78rem;padding:.4rem 1rem">Ver Produtos</span>
+                    </a>
+                }
+            </div>
+        </div>
+    </section>
+}
+
+<!-- PRODUTOS EM DESTAQUE -->
+<section class="container" style="padding-top:0">
+    <div class="section-header">
+        <h2 class="section-titulo">Produtos em Destaque</h2>
+        <a asp-controller="Home" asp-action="Catalogo" class="btn btn-outline">Ver Todos</a>
+    </div>
+
+    @if (Model.ProdutosDestaque.Any())
+    {
+        <div class="produtos-grid">
+            @foreach (var prod in Model.ProdutosDestaque)
+            {
+                <div class="produto-card">
+                    @if (!string.IsNullOrEmpty(prod.CategoriaNome))
+                    {
+                        <div class="produto-marca-badge">@prod.CategoriaNome</div>
+                    }
+
+                    @if (!string.IsNullOrEmpty(prod.Foto))
+                    {
+                        <img src="@prod.Foto" alt="@prod.Nome" class="produto-imagem" />
+                    }
+                    else
+                    {
+                        <!-- Placeholder realista de celular -->
+                        <div class="produto-imagem-placeholder">
+                            <svg width="90" height="150" viewBox="0 0 90 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="8" y="5" width="74" height="140" rx="11" fill="#1a0040" stroke="rgba(0,255,0,0.3)" stroke-width="1.5"/>
+                                <rect x="14" y="18" width="62" height="104" rx="4" fill="#0d0020"/>
+                                <!-- tela com reflexo sutil -->
+                                <rect x="16" y="20" width="30" height="40" rx="2" fill="rgba(0,255,0,0.03)"/>
+                                <!-- câmera traseira / notch -->
+                                <rect x="32" y="7" width="26" height="5" rx="2.5" fill="rgba(0,255,0,0.15)"/>
+                                <circle cx="55" cy="9.5" r="2" fill="rgba(0,255,0,0.25)"/>
+                                <!-- botão home -->
+                                <circle cx="45" cy="135" r="4" fill="rgba(0,255,0,0.15)" stroke="rgba(0,255,0,0.3)" stroke-width="1"/>
+                                <!-- linhas simulando conteúdo na tela -->
+                                <rect x="20" y="38" width="50" height="2" rx="1" fill="rgba(0,255,0,0.15)"/>
+                                <rect x="20" y="46" width="36" height="2" rx="1" fill="rgba(0,255,0,0.09)"/>
+                                <rect x="20" y="54" width="44" height="2" rx="1" fill="rgba(0,255,0,0.09)"/>
+                                <!-- ícone de celular centralizado na tela -->
+                                <text x="45" y="95" text-anchor="middle" font-size="28" fill="rgba(0,255,0,0.2)" font-family="sans-serif">📱</text>
+                            </svg>
+                        </div>
+                    }
+
+                    <div class="produto-info">
+                        <h3 class="produto-nome">@prod.Nome</h3>
+                        @if (!string.IsNullOrEmpty(prod.Descricao))
+                        {
+                            <p class="produto-desc">@(prod.Descricao.Length > 80 ? prod.Descricao[..80] + "…" : prod.Descricao)</p>
+                        }
+                        <div class="produto-preco">
+                            <span class="preco-atual">R$ @prod.ValorVenda.ToString("N2")</span>
+                        </div>
+                        <p class="produto-parcela">12x de R$ @((prod.ValorVenda / 12).ToString("N2")) sem juros</p>
+                        <div class="@(prod.Qtde > 0 ? "em-estoque" : "sem-estoque")">
+                            @(prod.Qtde > 0 ? $"{prod.Qtde} em estoque" : "Indisponível")
+                        </div>
+                        <div class="produto-acoes">
+                            <a asp-controller="Home" asp-action="Produto" asp-route-id="@prod.Id" class="btn">Ver Detalhes</a>
+                            @if (prod.Qtde > 0)
+                            {
+                                <a asp-controller="Carrinho" asp-action="Adicionar" asp-route-id="@prod.Id" class="btn btn-amarelo">Comprar</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="empty-state">
+            <p>Nenhum produto em destaque no momento.</p>
+            <a asp-controller="Home" asp-action="Catalogo" class="btn">Ver Catálogo Completo</a>
+        </div>
+    }
+</section>
+
+<!-- BANNER CONSERTO -->
+<section class="conserto-banner">
+    <div class="container">
+        <div class="conserto-content">
+            <h2>Serviços de Conserto</h2>
+            <p>Tela quebrada? Bateria fraca? Nossa equipe especializada resolve qualquer problema no seu celular.</p>
+            <ul class="conserto-lista">
+                <li>Troca de tela (Apple e Xiaomi)</li>
+                <li>Substituição de bateria</li>
+                <li>Reparo de câmera</li>
+                <li>Desbloqueio e formatação</li>
+            </ul>
+            <a asp-controller="Home" asp-action="Conserto" class="btn">Ver Todos os Serviços</a>
+        </div>
+    </div>
+</section>
+
+<!-- LOCALIZAÇÃO -->
+<section class="container">
+    <div class="localizacao-section">
+        <h2 class="section-titulo">Nossa Loja</h2>
+        <p class="section-desc">Venha nos visitar! Estamos localizados no coração da cidade.</p>
+        <div class="localizacao-info">
+            <div class="info-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>R. Antonio Eurico Dias Batista, Colina da Barra — Barra Bonita, SP</span>
+            </div>
+            <div class="info-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>Todos os dias: 09h às 21h</span>
+            </div>
+            <div class="info-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 14a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+                <a href="tel:+5514998057715" style="color:var(--texto-muted);text-decoration:none">+55 (14) 99805-7715</a>
+            </div>
+        </div>
+        <a asp-controller="Home" asp-action="Mapa" class="btn">Ver no Mapa</a>
+    </div>
+</section>

@@ -1,0 +1,62 @@
+@model ProdutoVM
+@{
+    ViewData["Title"] = "Excluir Produto";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Menu = "Produtos";
+}
+
+<div class="admin-page-header">
+    <div>
+        <h1 class="admin-titulo" style="color:#ff5252">Excluir Produto</h1>
+        <p class="admin-subtitulo">Esta ação não pode ser desfeita</p>
+    </div>
+    <a asp-action="Index" class="btn btn-outline">← Voltar</a>
+</div>
+
+<div class="admin-card" style="max-width:520px;border-color:rgba(255,82,82,0.3)">
+    <div style="background:rgba(255,82,82,0.07);border:1px solid rgba(255,82,82,0.25);border-radius:var(--radius);padding:1rem;margin-bottom:1.5rem;display:flex;gap:.75rem;align-items:flex-start">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff5252" stroke-width="2" style="flex-shrink:0;margin-top:.1rem">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+            <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+        <div>
+            <strong style="color:#ff5252">Atenção!</strong>
+            <p style="color:var(--texto-muted);margin-top:.25rem;font-size:.9rem">
+                Você está prestes a excluir <strong style="color:var(--texto)">@Model.Nome</strong>. Esta ação não pode ser desfeita.
+            </p>
+        </div>
+    </div>
+
+    <div style="display:flex;gap:1.25rem;align-items:flex-start;margin-bottom:1.75rem">
+        @if (!string.IsNullOrEmpty(Model.FotoUrl))
+        {
+            <img src="@Model.FotoUrl" style="width:72px;height:72px;object-fit:cover;border-radius:var(--radius);border:1px solid var(--borda);flex-shrink:0" />
+        }
+        else
+        {
+            <div style="width:72px;height:72px;background:var(--fundo-card-hover);border-radius:var(--radius);border:1px solid var(--borda);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--texto-faint)" stroke-width="1.5">
+                    <rect x="5" y="2" width="14" height="20" rx="3"/><circle cx="12" cy="17" r="1"/>
+                </svg>
+            </div>
+        }
+        <div style="display:flex;flex-direction:column;gap:.35rem;font-size:.875rem">
+            <div><span style="color:var(--texto-faint)">ID:</span> <span style="color:var(--texto)">@Model.Id</span></div>
+            <div><span style="color:var(--texto-faint)">Nome:</span> <span style="color:var(--texto);font-weight:600">@Model.Nome</span></div>
+            <div><span style="color:var(--texto-faint)">Categoria:</span> <span style="color:var(--texto)">@Model.CategoriaNome</span></div>
+            <div><span style="color:var(--texto-faint)">Estoque:</span> <span style="color:var(--texto)">@Model.Qtde unidades</span></div>
+            <div><span style="color:var(--texto-faint)">Preço:</span> <span style="color:var(--primario);font-family:'Orbitron',sans-serif;font-size:.82rem">R$ @Model.ValorVenda.ToString("N2")</span></div>
+        </div>
+    </div>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div style="display:flex;gap:1rem">
+            <button type="submit" class="btn btn-danger"
+                    onclick="return confirm('Confirmar exclusão de @Model.Nome?')">
+                Confirmar Exclusão
+            </button>
+            <a asp-action="Index" class="btn btn-outline">Cancelar</a>
+        </div>
+    </form>
+</div>

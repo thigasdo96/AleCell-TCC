@@ -1,0 +1,86 @@
+@model List<CategoriaVM>
+@{
+    ViewData["Title"] = "Categorias";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Menu = "Categorias";
+}
+
+<div class="admin-page-header">
+    <div>
+        <h1 class="admin-titulo">Categorias</h1>
+        <p class="admin-subtitulo">Marcas disponíveis na loja</p>
+    </div>
+    <a asp-action="Create" class="btn">+ Nova Categoria</a>
+</div>
+
+@if (Model.Any())
+{
+    <div class="admin-card" style="padding:0;overflow:hidden">
+        <div class="tabela-wrapper">
+            <table class="tabela">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Foto</th>
+                        <th>Nome</th>
+                        <th>Cor</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var cat in Model)
+                    {
+                        <tr>
+                            <td style="color:var(--texto-faint);font-size:.78rem">@cat.Id</td>
+                            <td>
+                                @if (!string.IsNullOrEmpty(cat.FotoUrl))
+                                {
+                                    <img src="@cat.FotoUrl" alt="@cat.Nome"
+                                         style="width:44px;height:44px;object-fit:cover;border-radius:var(--radius);border:1px solid var(--borda)" />
+                                }
+                                else
+                                {
+                                    <div style="width:44px;height:44px;background:@cat.Cor+'22';border-radius:var(--radius);border:1px solid var(--borda);display:flex;align-items:center;justify-content:center">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="@cat.Cor" stroke-width="1.5">
+                                            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+                                            <line x1="7" y1="7" x2="7.01" y2="7"/>
+                                        </svg>
+                                    </div>
+                                }
+                            </td>
+                            <td>
+                                <strong style="color:var(--texto)">@cat.Nome</strong>
+                            </td>
+                            <td>
+                                <div style="display:flex;align-items:center;gap:.6rem">
+                                    <div style="width:18px;height:18px;border-radius:4px;background:@cat.Cor;border:1px solid rgba(255,255,255,0.1);flex-shrink:0"></div>
+                                    <code style="color:var(--texto-faint);font-size:.78rem">@cat.Cor</code>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="acoes-tabela">
+                                    <a asp-action="Edit" asp-route-id="@cat.Id" class="btn" style="padding:.32rem .65rem;font-size:.78rem">Editar</a>
+                                    <a asp-action="Delete" asp-route-id="@cat.Id" class="btn btn-danger" style="padding:.32rem .65rem;font-size:.78rem"
+                                       onclick="return confirm('Excluir @cat.Nome?')">Excluir</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div style="padding:.85rem 1rem;border-top:1px solid var(--borda);color:var(--texto-faint);font-size:.8rem">
+            @Model.Count categoria(s) cadastrada(s)
+        </div>
+    </div>
+}
+else
+{
+    <div class="empty-state">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--texto-faint)" stroke-width="1">
+            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/>
+        </svg>
+        <p>Nenhuma categoria cadastrada.</p>
+        <a asp-action="Create" class="btn">+ Cadastrar Primeira Categoria</a>
+    </div>
+}

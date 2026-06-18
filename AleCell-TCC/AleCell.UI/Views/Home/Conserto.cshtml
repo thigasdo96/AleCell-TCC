@@ -1,0 +1,153 @@
+@{
+    ViewData["Title"] = "Conserto de Celulares";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="container">
+    <div class="page-header">
+        <div>
+            <h1 class="page-titulo">Conserto de Celulares</h1>
+            <p class="page-desc">Especialistas em Apple e Xiaomi — orçamento sem compromisso</p>
+        </div>
+    </div>
+
+    <div class="servicos-grid">
+
+        <div class="servico-card">
+            <div class="servico-icon-svg">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primario)" stroke-width="1.5">
+                    <rect x="5" y="2" width="14" height="20" rx="3"/>
+                    <rect x="8" y="7" width="8" height="8" rx="1"/>
+                    <circle cx="12" cy="18" r="1"/>
+                </svg>
+            </div>
+            <h3>Troca de Tela</h3>
+            <p>Telas originais para iPhone e Xiaomi. Garantia de 6 meses na peça e serviço.</p>
+            <div class="servico-preco"><span>iPhone (todos os modelos)</span><strong>a partir de R$ 249</strong></div>
+            <div class="servico-preco"><span>Xiaomi (todos os modelos)</span><strong>a partir de R$ 179</strong></div>
+        </div>
+
+        <div class="servico-card">
+            <div class="servico-icon-svg">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primario)" stroke-width="1.5">
+                    <rect x="6" y="7" width="12" height="10" rx="2"/>
+                    <line x1="12" y1="7" x2="12" y2="4"/>
+                    <line x1="8" y1="4" x2="16" y2="4"/>
+                    <path d="M6 14H4a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1"/>
+                </svg>
+            </div>
+            <h3>Substituição de Bateria</h3>
+            <p>Bateria com baixa autonomia? Trocamos por componentes de alta qualidade.</p>
+            <div class="servico-preco"><span>iPhone</span><strong>a partir de R$ 149</strong></div>
+            <div class="servico-preco"><span>Xiaomi</span><strong>a partir de R$ 99</strong></div>
+        </div>
+
+        <div class="servico-card">
+            <div class="servico-icon-svg">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primario)" stroke-width="1.5">
+                    <circle cx="12" cy="12" r="3"/>
+                    <path d="M2 12h2M20 12h2M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+                </svg>
+            </div>
+            <h3>Reparo de Câmera</h3>
+            <p>Câmera embaçada, preta ou com defeito? Consertamos módulos frontais e traseiros.</p>
+            <div class="servico-preco"><span>Câmera frontal</span><strong>a partir de R$ 129</strong></div>
+            <div class="servico-preco"><span>Câmera traseira</span><strong>a partir de R$ 179</strong></div>
+        </div>
+
+        <div class="servico-card">
+            <div class="servico-icon-svg">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primario)" stroke-width="1.5">
+                    <path d="M12 2v6M12 16v6M4.93 4.93l4.24 4.24M14.83 14.83l4.24 4.24M2 12h6M16 12h6M4.93 19.07l4.24-4.24M14.83 9.17l4.24-4.24"/>
+                </svg>
+            </div>
+            <h3>Conector de Carga</h3>
+            <p>Carregamento instável ou sem carga? Trocamos o conector USB-C ou Lightning.</p>
+            <div class="servico-preco"><span>Troca do conector</span><strong>a partir de R$ 89</strong></div>
+        </div>
+
+        <div class="servico-card">
+            <div class="servico-icon-svg">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primario)" stroke-width="1.5">
+                    <path d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20z"/>
+                    <path d="M12 8v4l3 3"/>
+                </svg>
+            </div>
+            <h3>Dano por Água</h3>
+            <p>Limpeza e recuperação de placas e componentes molhados com ultrassom profissional.</p>
+            <div class="servico-preco"><span>Diagnóstico + limpeza</span><strong>a partir de R$ 120</strong></div>
+        </div>
+
+        <div class="servico-card">
+            <div class="servico-icon-svg">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primario)" stroke-width="1.5">
+                    <rect x="3" y="11" width="18" height="11" rx="2"/>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+            </div>
+            <h3>Desbloqueio e Formatação</h3>
+            <p>Desbloqueio de operadora, reset de fábrica, recuperação de acesso e atualização de software.</p>
+            <div class="servico-preco"><span>Desbloqueio / formatação</span><strong>a partir de R$ 69</strong></div>
+        </div>
+
+    </div>
+
+    <!-- CONTATO -->
+    <div class="contato-conserto" style="margin-top:3rem;text-align:center">
+        <h2 class="section-titulo">Precisa de Orçamento?</h2>
+        <p style="color:var(--texto-muted);margin-bottom:1.5rem">Entre em contato e receba um diagnóstico gratuito do seu aparelho.</p>
+        <div class="contato-opcoes" style="justify-content:center">
+            <a href="https://wa.me/5514999998888" target="_blank" class="btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:.3rem">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 14a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 19.92z"/>
+                </svg>
+                WhatsApp
+            </a>
+            <a asp-controller="Home" asp-action="Mapa" class="btn btn-outline">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:.3rem">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                </svg>
+                Nossa Loja
+            </a>
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <div style="margin-top:3rem;max-width:700px;margin-left:auto;margin-right:auto">
+        <h2 class="section-titulo" style="text-align:center">Perguntas Frequentes</h2>
+        <div class="faq-lista" style="margin-top:1.5rem">
+            <div class="faq-item">
+                <button class="faq-pergunta" onclick="toggleFaq(this)">
+                    Quanto tempo leva o conserto? <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-resposta">
+                    <p>A maioria dos consertos é concluída no mesmo dia. Trocas de tela e bateria costumam levar de 30 minutos a 2 horas. Danos mais complexos podem levar até 3 dias úteis.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-pergunta" onclick="toggleFaq(this)">
+                    O orçamento é gratuito? <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-resposta">
+                    <p>Sim! O diagnóstico e o orçamento são totalmente gratuitos e sem compromisso. Você decide se quer prosseguir com o reparo.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-pergunta" onclick="toggleFaq(this)">
+                    Os componentes usados são originais? <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-resposta">
+                    <p>Trabalhamos com peças originais e de alta qualidade compatível. Sempre informamos qual tipo será usado antes do serviço, para você decidir.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-pergunta" onclick="toggleFaq(this)">
+                    Tem garantia no serviço? <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-resposta">
+                    <p>Sim! Oferecemos garantia de 6 meses na peça e 90 dias no serviço de mão de obra para todos os reparos realizados.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

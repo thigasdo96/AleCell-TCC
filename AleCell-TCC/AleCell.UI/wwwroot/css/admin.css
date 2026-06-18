@@ -1,0 +1,326 @@
+/* ================================================================
+   ADMIN.CSS — AleCell v2 — Complementos do painel admin
+   Usa as variáveis de alecell.css (--primario, --cta, etc.)
+   ================================================================ */
+
+/* ---- utilitários básicos ---- */
+.tabela-wrapper { overflow-x: auto; }
+
+.badge-sim { color: #00c896; }
+.badge-nao { color: var(--texto-faint); }
+
+.cor-preview-inline {
+  display: inline-block;
+  width: 13px; height: 13px;
+  border-radius: 3px;
+  border: 1px solid var(--borda);
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+.linha-inativa { opacity: 0.45; }
+
+/* ---- alerts (reforço p/ admin) ---- */
+.alert {
+  padding: .8rem 1.2rem;
+  border-radius: var(--radius);
+  margin-bottom: 1.25rem;
+  font-size: .875rem;
+  border-left: 3px solid;
+}
+.alert-sucesso { background: rgba(0,200,150,0.07); border-color: #00c896; color: #00c896; }
+.alert-erro    { background: rgba(255,82,82,0.07);  border-color: #ff5252; color: #ff5252; }
+.alert-aviso   { background: rgba(255,109,0,0.07);  border-color: var(--cta); color: var(--cta); }
+
+/* ================================================================
+   TOPBAR + SIDEBAR ADMIN
+   (admin-body, admin-topbar, admin-sidebar já definidos em alecell.css;
+    aqui reforçamos só o que o admin.css original definia separado)
+   ================================================================ */
+
+/* Garante visibilidade de topbar mesmo sem o grid do body */
+.admin-topbar {
+  grid-column: 1 / -1;
+  position: sticky;
+  top: 0;
+  z-index: 300;
+}
+
+/* ativo com borda lateral ciano */
+.admin-nav-item.ativo {
+  border-left: 3px solid var(--primario);
+  padding-left: calc(.85rem - 3px);
+  background: var(--primario-bg);
+  color: var(--primario);
+}
+
+/* ================================================================
+   DASHBOARD — STATS
+   ================================================================ */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: var(--fundo-card);
+  border: 1px solid var(--borda);
+  border-radius: var(--radius-lg);
+  padding: 1.4rem 1.2rem;
+  text-align: center;
+  transition: var(--transicao);
+  cursor: default;
+}
+.stat-card:hover {
+  border-color: rgba(0, 255, 0, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.4), 0 0 20px rgba(0, 255, 0, 0.06);
+}
+.stat-card.stat-receita { border-color: rgba(255,109,0,0.15); }
+.stat-card.stat-receita:hover {
+  border-color: rgba(255,109,0,0.35);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.4), 0 0 20px rgba(255,109,0,0.08);
+}
+
+.stat-icon { display: flex; justify-content: center; margin-bottom: .7rem; }
+
+.stat-valor {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--primario);
+  line-height: 1;
+  margin-bottom: .4rem;
+}
+.stat-label {
+  color: var(--texto-faint);
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  font-weight: 500;
+}
+
+/* ================================================================
+   DASHBOARD — GRID 2 COLUNAS
+   ================================================================ */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+@media (max-width: 960px) {
+  .dashboard-grid { grid-template-columns: 1fr; }
+}
+
+/* ================================================================
+   ADMIN CARDS
+   ================================================================ */
+.admin-card {
+  background: var(--fundo-card);
+  border: 1px solid var(--borda);
+  border-radius: var(--radius-lg);
+  padding: 1.4rem;
+  margin-bottom: 1.25rem;
+}
+.admin-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: .75rem;
+}
+.admin-card-header h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: .875rem;
+  font-weight: 600;
+  color: var(--texto);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+/* ================================================================
+   TABELAS ADMIN
+   ================================================================ */
+.tabela { width: 100%; border-collapse: collapse; font-size: .85rem; }
+
+.tabela thead th {
+  background: rgba(255,255,255,0.025);
+  color: var(--texto-faint);
+  font-family: 'Inter', sans-serif;
+  font-size: .72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  padding: .6rem .85rem;
+  text-align: left;
+  border-bottom: 1px solid var(--borda);
+  white-space: nowrap;
+}
+
+.tabela tbody tr { border-bottom: 1px solid var(--borda); transition: background .12s; }
+.tabela tbody tr:hover { background: rgba(255,255,255,0.022); }
+.tabela tbody td { padding: .65rem .85rem; color: var(--texto-muted); vertical-align: middle; }
+.tabela tbody tr:last-child { border-bottom: none; }
+
+.acoes-tabela { display: flex; gap: .35rem; flex-wrap: wrap; }
+
+/* ================================================================
+   ESTOQUE / OUTROS
+   ================================================================ */
+.estoque-rapido h3 { color: var(--cta); }
+.estoque-controles { margin-top: .75rem; }
+.input-estoque {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--borda);
+  color: var(--texto);
+  padding: .5rem .7rem;
+  border-radius: var(--radius);
+  font-size: .9rem;
+}
+
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: .5rem; }
+.info-grid strong { color: var(--texto-faint); font-size: .8rem; display: block; }
+.info-grid p { color: var(--texto); margin-top: .2rem; font-size: .875rem; }
+
+.pedido-admin-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+
+/* ================================================================
+   FORM ADMIN
+   ================================================================ */
+.form-group, .form-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: .38rem;
+  margin-bottom: .9rem;
+}
+.form-group label, .form-label {
+  color: var(--texto-muted);
+  font-size: .82rem;
+  font-weight: 500;
+}
+.form-control {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--borda);
+  color: var(--texto);
+  padding: .6rem .85rem;
+  border-radius: var(--radius);
+  font-size: .875rem;
+  font-family: 'Inter', sans-serif;
+  transition: var(--transicao);
+  width: 100%;
+}
+.form-control:focus {
+  outline: none;
+  border-color: var(--primario);
+  background: rgba(0,229,255,0.03);
+  box-shadow: 0 0 0 3px rgba(0, 255, 0, 0.08);
+}
+.form-control::placeholder { color: var(--texto-faint); }
+.form-control option { background: #1a1d26; }
+
+.form-input-readonly {
+  padding: .6rem .85rem;
+  background: rgba(255,255,255,0.025);
+  border: 1px solid var(--borda);
+  border-radius: var(--radius);
+  color: var(--texto);
+  font-size: .875rem;
+}
+
+.field-error { color: #ff5252; font-size: .78rem; margin-top: .25rem; }
+.validation-summary-errors { display: none; }
+
+/* ================================================================
+   NAV USER MENU (admin topbar)
+   ================================================================ */
+.nav-user-menu { position: relative; }
+.nav-user-toggle {
+  display: flex; align-items: center; gap: .45rem;
+  background: none; border: none; cursor: pointer;
+  color: var(--texto); padding: .35rem .55rem;
+  border-radius: var(--radius); transition: background .15s;
+}
+.nav-user-toggle:hover { background: rgba(255,255,255,0.05); }
+
+.nav-user-avatar {
+  width: 30px; height: 30px;
+  border-radius: 50%; object-fit: cover;
+  border: 1.5px solid var(--primario);
+}
+.nav-user-inicial {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: var(--primario-bg);
+  border: 1.5px solid var(--primario);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Orbitron', sans-serif;
+  font-size: .68rem; font-weight: 700; color: var(--primario);
+}
+.nav-user-name { font-size: .85rem; font-weight: 500; }
+.nav-user-caret { font-size: .65rem; color: var(--texto-faint); }
+
+.nav-user-dropdown {
+  display: none;
+  position: absolute; right: 0; top: calc(100% + .4rem);
+  background: #14161f;
+  border: 1px solid var(--borda);
+  border-radius: var(--radius-lg);
+  min-width: 185px;
+  padding: .4rem 0;
+  list-style: none;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.65);
+  z-index: 600;
+}
+.nav-user-menu.open .nav-user-dropdown { display: block; }
+
+.nav-user-dropdown li a {
+  display: flex; align-items: center; gap: .5rem;
+  padding: .6rem 1rem;
+  color: var(--texto-muted); font-size: .85rem;
+  text-decoration: none; transition: background .12s, color .12s;
+}
+.nav-user-dropdown li a:hover {
+  background: rgba(255,255,255,0.04);
+  color: var(--primario);
+}
+.nav-user-dropdown .separator { height: 1px; background: var(--borda); margin: .3rem 0; }
+
+/* Login/Registro inline (navbar admin) */
+.btn-login {
+  padding: .4rem .85rem !important;
+  border: 1px solid var(--borda) !important;
+  border-radius: var(--radius) !important;
+  color: var(--texto-muted) !important;
+  font-size: .82rem !important;
+  font-weight: 500 !important;
+  background: transparent !important;
+  transition: var(--transicao) !important;
+}
+.btn-login:hover { border-color: var(--primario) !important; color: var(--primario) !important; }
+
+.btn-registro {
+  padding: .4rem .85rem !important;
+  background: var(--primario) !important;
+  border-radius: var(--radius) !important;
+  color: #000 !important;
+  font-size: .82rem !important;
+  font-weight: 700 !important;
+  margin-left: .4rem !important;
+  border: none !important;
+}
+.btn-registro:hover { background: var(--primario-hover) !important; box-shadow: var(--primario-glow) !important; }
+
+/* ================================================================
+   RESPONSIVO ADMIN
+   ================================================================ */
+@media (max-width: 900px) {
+  .dashboard-grid { grid-template-columns: 1fr; }
+  .pedido-admin-layout { grid-template-columns: 1fr; }
+  .info-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .admin-card { padding: 1rem; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+}

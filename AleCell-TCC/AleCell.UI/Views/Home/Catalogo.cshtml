@@ -1,0 +1,105 @@
+@model List<ProdutoDto>
+@{
+    ViewData["Title"] = "Catálogo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="container">
+    <div class="page-header">
+        <div>
+            <h1 class="page-titulo">Catálogo</h1>
+            <p class="page-desc">Encontre o celular perfeito para você</p>
+        </div>
+    </div>
+
+    <div class="filtros-bar">
+        <a asp-controller="Home" asp-action="Catalogo"
+           class="filtro-btn @(ViewBag.CategoriaSelecionada == 0 ? "ativo" : "")">Todos</a>
+        @foreach (var cat in (List<CategoriaDto>)ViewBag.Categorias)
+        {
+            <a asp-controller="Home" asp-action="Catalogo" asp-route-categoriaId="@cat.Id"
+               class="filtro-btn @(ViewBag.CategoriaSelecionada == cat.Id ? "ativo" : "")"
+               style="@(ViewBag.CategoriaSelecionada == cat.Id ? $"border-color:{cat.Cor};color:{cat.Cor};background:rgba(0,255,0,0.07)" : "")">
+                @cat.Nome
+            </a>
+        }
+    </div>
+
+    <p class="catalogo-count">@Model.Count produto(s) encontrado(s)</p>
+
+    @if (Model.Any())
+    {
+        <div class="produtos-grid">
+            @foreach (var prod in Model)
+            {
+                <div class="produto-card">
+                    @if (!string.IsNullOrEmpty(prod.CategoriaNome))
+                    {
+                        <div class="produto-marca-badge">@prod.CategoriaNome</div>
+                    }
+                    @if (prod.Destaque)
+                    {
+                        <div class="produto-destaque-badge" style="position:absolute;top:.65rem;right:.65rem;z-index:1">Destaque</div>
+                    }
+
+                    @if (!string.IsNullOrEmpty(prod.Foto))
+                    {
+                        <img src="@prod.Foto" alt="@prod.Nome" class="produto-imagem" />
+                    }
+                    else
+                    {
+                        <div class="produto-imagem-placeholder">
+                            <svg width="90" height="150" viewBox="0 0 90 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="8" y="5" width="74" height="140" rx="11" fill="#1a0040" stroke="rgba(0,255,0,0.3)" stroke-width="1.5"/>
+                                <rect x="14" y="18" width="62" height="104" rx="4" fill="#0d0020"/>
+                                <rect x="32" y="7" width="26" height="5" rx="2.5" fill="rgba(0,255,0,0.15)"/>
+                                <circle cx="55" cy="9.5" r="2" fill="rgba(0,255,0,0.25)"/>
+                                <circle cx="45" cy="135" r="4" fill="rgba(0,255,0,0.15)" stroke="rgba(0,255,0,0.3)" stroke-width="1"/>
+                                <rect x="20" y="38" width="50" height="2" rx="1" fill="rgba(0,255,0,0.15)"/>
+                                <rect x="20" y="46" width="36" height="2" rx="1" fill="rgba(0,255,0,0.09)"/>
+                                <rect x="20" y="54" width="44" height="2" rx="1" fill="rgba(0,255,0,0.09)"/>
+                                <text x="45" y="95" text-anchor="middle" font-size="28" fill="rgba(0,255,0,0.2)" font-family="sans-serif">📱</text>
+                            </svg>
+                        </div>
+                    }
+
+                    <div class="produto-info">
+                        <h3 class="produto-nome">@prod.Nome</h3>
+                        @if (!string.IsNullOrEmpty(prod.Descricao))
+                        {
+                            <p class="produto-desc">@(prod.Descricao.Length > 80 ? prod.Descricao[..80] + "…" : prod.Descricao)</p>
+                        }
+                        <div class="produto-preco">
+                            <span class="preco-atual">R$ @prod.ValorVenda.ToString("N2")</span>
+                        </div>
+                        <p class="produto-parcela">12x de R$ @((prod.ValorVenda / 12).ToString("N2")) sem juros</p>
+                        <div class="@(prod.Qtde > 0 ? "em-estoque" : "sem-estoque")">
+                            @(prod.Qtde > 0 ? $"{prod.Qtde} em estoque" : "Indisponível")
+                        </div>
+                        <div class="produto-acoes">
+                            <a asp-controller="Home" asp-action="Produto" asp-route-id="@prod.Id" class="btn">Ver</a>
+                            @if (prod.Qtde > 0)
+                            {
+                                <a asp-controller="Carrinho" asp-action="Adicionar" asp-route-id="@prod.Id"
+                                   class="btn btn-amarelo" title="Adicionar ao Carrinho">
+                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                        <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                                    </svg>
+                                    Comprar
+                                </a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="empty-state">
+            <p>Nenhum produto encontrado nessa categoria.</p>
+            <a asp-controller="Home" asp-action="Catalogo" class="btn">Ver Todos</a>
+        </div>
+    }
+</section>

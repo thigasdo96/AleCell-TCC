@@ -1,0 +1,132 @@
+@model List<CarrinhoItemDto>
+@{
+    ViewData["Title"] = "Meu Carrinho";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var total = Model.Sum(i => i.Subtotal);
+    var temItens = Model.Any();
+}
+
+<section class="container">
+    <nav class="breadcrumb">
+        <a asp-controller="Home" asp-action="Index">Home</a>
+        <span>›</span>
+        <span>Carrinho</span>
+    </nav>
+
+    <div class="page-header">
+        <h1 class="page-titulo">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:.5rem"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            Meu Carrinho
+        </h1>
+        @if (temItens)
+        {
+            <a asp-controller="Carrinho" asp-action="Limpar"
+               onclick="return confirm('Deseja limpar o carrinho?')"
+               class="btn btn-outline" style="font-size:.82rem">Limpar carrinho</a>
+        }
+    </div>
+
+    @if (!temItens)
+    {
+        <div class="empty-state">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="rgba(0,255,0,0.3)" stroke-width="1"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            <h2>Seu carrinho está vazio</h2>
+            <p>Adicione produtos para continuar comprando.</p>
+            <a asp-controller="Home" asp-action="Catalogo" class="btn">Ver Catálogo</a>
+        </div>
+    }
+    else
+    {
+        <div class="carrinho-layout">
+
+            <!-- LISTA DE ITENS -->
+            <div class="carrinho-itens">
+                @foreach (var item in Model)
+                {
+                    <div class="carrinho-item">
+                        <!-- Foto -->
+                        <div class="carrinho-item-foto">
+                            @if (!string.IsNullOrEmpty(item.Foto))
+                            {
+                                <img src="@item.Foto" alt="@item.Nome" />
+                            }
+                            else
+                            {
+                                <svg viewBox="0 0 60 75" width="56" height="70" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="4" y="3" width="52" height="69" rx="7" fill="#1a0040" stroke="rgba(0,255,0,0.2)" stroke-width="1.5"/>
+                                    <rect x="9" y="11" width="42" height="50" rx="3" fill="#0d0020"/>
+                                    <circle cx="30" cy="67" r="3" fill="rgba(0,255,0,0.25)"/>
+                                    <rect x="22" y="6" width="16" height="2" rx="1" fill="rgba(0,255,0,0.15)"/>
+                                </svg>
+                            }
+                        </div>
+
+                        <!-- Info -->
+                        <div class="carrinho-item-info">
+                            <h3>@item.Nome</h3>
+                            <span class="preco-atual">R$ @item.ValorUnitario.ToString("N2") / un.</span>
+                        </div>
+
+                        <!-- Quantidade -->
+                        <div class="carrinho-item-qtde">
+                            <form asp-controller="Carrinho" asp-action="AtualizarQuantidade" method="post" style="display:flex;align-items:center;gap:.5rem">
+                                <input type="hidden" name="produtoId" value="@item.ProdutoId" />
+                                <button type="submit" name="quantidade" value="@(item.Quantidade - 1)"
+                                        class="qtde-btn" @(item.Quantidade <= 1 ? "onclick=\"return confirm('Remover item?')\"" : "")>−</button>
+                                <span class="qtde-valor">@item.Quantidade</span>
+                                <button type="submit" name="quantidade" value="@(item.Quantidade + 1)"
+                                        class="qtde-btn" @(item.Quantidade >= item.EstoqueMax ? "disabled" : "")>+</button>
+                            </form>
+                        </div>
+
+                        <!-- Subtotal -->
+                        <div class="carrinho-item-subtotal">
+                            <span class="preco-atual">R$ @item.Subtotal.ToString("N2")</span>
+                        </div>
+
+                        <!-- Remover -->
+                        <a asp-controller="Carrinho" asp-action="Remover" asp-route-id="@item.ProdutoId"
+                           class="carrinho-remover" title="Remover item"
+                           onclick="return confirm('Remover @item.Nome do carrinho?')">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+                        </a>
+                    </div>
+                }
+            </div>
+
+            <!-- RESUMO -->
+            <div class="carrinho-resumo">
+                <div class="admin-card" style="padding:1.5rem">
+                    <h3 style="margin-bottom:1.25rem;color:var(--primario)">Resumo do Pedido</h3>
+
+                    <div class="resumo-linha">
+                        <span>Subtotal (@Model.Count iten(s))</span>
+                        <span>R$ @total.ToString("N2")</span>
+                    </div>
+                    <div class="resumo-linha">
+                        <span>Frete</span>
+                        <span style="color:var(--primario)">Grátis</span>
+                    </div>
+                    <div class="resumo-linha total">
+                        <span>Total</span>
+                        <span class="preco-atual" style="font-size:1.3rem">R$ @total.ToString("N2")</span>
+                    </div>
+
+                    <div style="margin-top:.75rem;color:var(--texto-muted);font-size:.82rem">
+                        ou 12x de R$ @((total / 12).ToString("N2")) sem juros
+                    </div>
+
+                    <a asp-controller="Carrinho" asp-action="Checkout"
+                       class="btn btn-amarelo btn-grande" style="width:100%;margin-top:1.25rem;text-align:center">
+                        Finalizar Compra
+                    </a>
+                    <a asp-controller="Home" asp-action="Catalogo"
+                       class="btn btn-outline" style="width:100%;margin-top:.75rem;text-align:center">
+                        Continuar Comprando
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    }
+</section>
