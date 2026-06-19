@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "targets": {
     "net10.0": {
       "AutoMapper/13.0.1": {
@@ -46,11 +46,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\etec\\Downloads\\AleCell-TCCm certo cpa\\AleCell-TCC\\AleCell.UI\\AleCell.UI.csproj",
+      "projectUniqueName": "C:\\Users\\etec\\Desktop\\AleCell-TCC\\AleCell-TCC\\AleCell.UI\\AleCell.UI.csproj",
       "projectName": "AleCell.UI",
-      "projectPath": "C:\\Users\\etec\\Downloads\\AleCell-TCCm certo cpa\\AleCell-TCC\\AleCell.UI\\AleCell.UI.csproj",
+      "projectPath": "C:\\Users\\etec\\Desktop\\AleCell-TCC\\AleCell-TCC\\AleCell.UI\\AleCell.UI.csproj",
       "packagesPath": "C:\\Users\\etec\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\etec\\Downloads\\AleCell-TCCm certo cpa\\AleCell-TCC\\AleCell.UI\\obj\\",
+      "outputPath": "C:\\Users\\etec\\Desktop\\AleCell-TCC\\AleCell-TCC\\AleCell.UI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -69,6 +69,7 @@
       },
       "frameworks": {
         "net10.0": {
+          "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {}
         }
@@ -83,10 +84,11 @@
         "auditLevel": "low",
         "auditMode": "all"
       },
-      "SdkAnalysisLevel": "10.0.200"
+      "SdkAnalysisLevel": "10.0.300"
     },
     "frameworks": {
       "net10.0": {
+        "framework": "net10.0",
         "targetAlias": "net10.0",
         "dependencies": {
           "AutoMapper": {
@@ -113,7 +115,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.300/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
           "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
@@ -536,7 +538,7 @@
       "code": "NU1903",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'AutoMapper' 13.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-rvv3-g6hj-g44x",
+      "message": "O pacote 'AutoMapper' 13.0.1 tem uma alta vulnerabilidade de gravidade conhecida, https://github.com/advisories/GHSA-rvv3-g6hj-g44x",
       "libraryId": "AutoMapper",
       "targetGraphs": [
         "net10.0"

@@ -88,7 +88,6 @@ public class AppDbContext : IdentityDbContext<Usuario>
             new Categoria { Id = 1, Nome = "Apple", Cor = "rgba(100,100,100,1)", Foto = "/img/categorias/apple.png" },
             new Categoria { Id = 2, Nome = "Xiaomi", Cor = "rgba(255,100,0,1)", Foto = "/img/categorias/xiaomi.png" },
             new Categoria { Id = 3, Nome = "Acessórios", Cor = "rgba(0,180,255,1)", Foto = "/img/categorias/acessorios.png" },
-            new Categoria { Id = 4, Nome = "Conserto", Cor = "rgba(0,200,100,1)", Foto = "/img/categorias/conserto.png" },
         };
         builder.Entity<Categoria>().HasData(categorias);
     }
