@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AleCell.UI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+579ac159177e4351b8f3bfdd113eba05aab24b93")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a23696826b082f2ac8779334de2e9374f9242684")]
 [assembly: System.Reflection.AssemblyProductAttribute("AleCell.UI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AleCell.UI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
