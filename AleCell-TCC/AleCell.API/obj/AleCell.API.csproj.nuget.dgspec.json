@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\etec\\Desktop\\AleCell-TCC\\AleCell-TCC\\AleCell.API\\AleCell.API.csproj": {}
+    "C:\\Users\\etec\\Downloads\\AleCell-TCC\\AleCell.API\\AleCell.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\etec\\Desktop\\AleCell-TCC\\AleCell-TCC\\AleCell.API\\AleCell.API.csproj": {
+    "C:\\Users\\etec\\Downloads\\AleCell-TCC\\AleCell.API\\AleCell.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\etec\\Desktop\\AleCell-TCC\\AleCell-TCC\\AleCell.API\\AleCell.API.csproj",
+        "projectUniqueName": "C:\\Users\\etec\\Downloads\\AleCell-TCC\\AleCell.API\\AleCell.API.csproj",
         "projectName": "AleCell.API",
-        "projectPath": "C:\\Users\\etec\\Desktop\\AleCell-TCC\\AleCell-TCC\\AleCell.API\\AleCell.API.csproj",
+        "projectPath": "C:\\Users\\etec\\Downloads\\AleCell-TCC\\AleCell.API\\AleCell.API.csproj",
         "packagesPath": "C:\\Users\\etec\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\etec\\Desktop\\AleCell-TCC\\AleCell-TCC\\AleCell.API\\obj\\",
+        "outputPath": "C:\\Users\\etec\\Downloads\\AleCell-TCC\\AleCell.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

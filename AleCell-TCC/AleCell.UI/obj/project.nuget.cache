@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zfjeXXGt2yo=",
+  "dgSpecHash": "zehyjiyjUno=",
   "success": true,
-  "projectFilePath": "C:\\Users\\etec\\Desktop\\AleCell-TCC\\AleCell-TCC\\AleCell.UI\\AleCell.UI.csproj",
+  "projectFilePath": "C:\\Users\\etec\\Downloads\\AleCell-TCC\\AleCell.UI\\AleCell.UI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\etec\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512"
   ],
@@ -11,9 +11,9 @@
       "code": "NU1903",
       "level": "Warning",
       "message": "O pacote 'AutoMapper' 13.0.1 tem uma alta vulnerabilidade de gravidade conhecida, https://github.com/advisories/GHSA-rvv3-g6hj-g44x",
-      "projectPath": "C:\\Users\\etec\\Desktop\\AleCell-TCC\\AleCell-TCC\\AleCell.UI\\AleCell.UI.csproj",
+      "projectPath": "C:\\Users\\etec\\Downloads\\AleCell-TCC\\AleCell.UI\\AleCell.UI.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Users\\etec\\Desktop\\AleCell-TCC\\AleCell-TCC\\AleCell.UI\\AleCell.UI.csproj",
+      "filePath": "C:\\Users\\etec\\Downloads\\AleCell-TCC\\AleCell.UI\\AleCell.UI.csproj",
       "libraryId": "AutoMapper",
       "targetGraphs": [
         "net10.0"

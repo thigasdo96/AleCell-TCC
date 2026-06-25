@@ -33,11 +33,11 @@
     <main>
         @if (TempData["Erro"] != null)
         {
-            <div class="alert alert-erro">@TempData["Erro"]</div>
+            <div class="alert alert-erro" role="alert">@TempData["Erro"]</div>
         }
         @if (TempData["Sucesso"] != null)
         {
-            <div class="alert alert-sucesso">@TempData["Sucesso"]</div>
+            <div class="alert alert-sucesso" role="alert">@TempData["Sucesso"]</div>
         }
         @RenderBody()
     </main>

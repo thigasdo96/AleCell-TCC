@@ -1,75 +1,37 @@
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\bin\Debug\net10.0\appsettings.json
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\bin\Debug\net10.0\AleCell.UI.staticwebassets.runtime.json
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\bin\Debug\net10.0\AleCell.UI.staticwebassets.endpoints.json
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\bin\Debug\net10.0\AleCell.UI.exe
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\bin\Debug\net10.0\AleCell.UI.deps.json
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\bin\Debug\net10.0\AleCell.UI.runtimeconfig.json
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\bin\Debug\net10.0\AleCell.UI.dll
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\bin\Debug\net10.0\AleCell.UI.pdb
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\bin\Debug\net10.0\AutoMapper.dll
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.csproj.AssemblyReference.cache
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\rpswa.dswa.cache.json
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.AssemblyInfoInputs.cache
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.AssemblyInfo.cs
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.csproj.CoreCompileInputs.cache
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.RazorAssemblyInfo.cache
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.RazorAssemblyInfo.cs
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\rjimswa.dswa.cache.json
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\scopedcss\bundle\AleCell.UI.styles.css
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\compressed\naiykrp2c0-{0}-kk2b739bl3-kk2b739bl3.gz
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\compressed\hwb2p8opyr-{0}-mtw2k2o4lf-mtw2k2o4lf.gz
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\compressed\0ftid3d2jp-{0}-p81fnit1fx-p81fnit1fx.gz
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\compressed\zyido306m3-{0}-trk1i9hgtj-trk1i9hgtj.gz
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\staticwebassets.build.json
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\staticwebassets.build.json.cache
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\staticwebassets.development.json
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\staticwebassets.build.endpoints.json
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\swae.build.ex.cache
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.csproj.Up2Date
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.dll
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\refint\AleCell.UI.dll
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.pdb
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.genruntimeconfig.cache
-C:\Users\etec\Downloads\AleCell-TCCm certo cpa\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\ref\AleCell.UI.dll
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\bin\Debug\net10.0\appsettings.json
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\bin\Debug\net10.0\AleCell.UI.staticwebassets.runtime.json
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\bin\Debug\net10.0\AleCell.UI.staticwebassets.endpoints.json
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\bin\Debug\net10.0\AleCell.UI.exe
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\bin\Debug\net10.0\AleCell.UI.deps.json
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\bin\Debug\net10.0\AleCell.UI.runtimeconfig.json
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\bin\Debug\net10.0\AleCell.UI.dll
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\bin\Debug\net10.0\AleCell.UI.pdb
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\bin\Debug\net10.0\AutoMapper.dll
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.csproj.AssemblyReference.cache
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\rpswa.dswa.cache.json
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.AssemblyInfoInputs.cache
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.AssemblyInfo.cs
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.csproj.CoreCompileInputs.cache
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.RazorAssemblyInfo.cache
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.RazorAssemblyInfo.cs
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.sourcelink.json
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\rjimswa.dswa.cache.json
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\scopedcss\bundle\AleCell.UI.styles.css
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\compressed\naiykrp2c0-{0}-aa5ilgvt4n-aa5ilgvt4n.gz
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\compressed\hwb2p8opyr-{0}-y1ee6u5bbg-y1ee6u5bbg.gz
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\compressed\0ftid3d2jp-{0}-vuox07b3xq-vuox07b3xq.gz
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\compressed\zyido306m3-{0}-pgyocdzl2h-pgyocdzl2h.gz
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\staticwebassets.build.json
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\staticwebassets.build.json.cache
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\staticwebassets.development.json
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\staticwebassets.build.endpoints.json
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\swae.build.ex.cache
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.csproj.Up2Date
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.dll
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\refint\AleCell.UI.dll
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.pdb
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.genruntimeconfig.cache
-C:\Users\etec\Desktop\AleCell-TCC\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\ref\AleCell.UI.dll
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\bin\Debug\net10.0\appsettings.json
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\bin\Debug\net10.0\AleCell.UI.staticwebassets.runtime.json
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\bin\Debug\net10.0\AleCell.UI.staticwebassets.endpoints.json
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\bin\Debug\net10.0\AleCell.UI.exe
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\bin\Debug\net10.0\AleCell.UI.deps.json
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\bin\Debug\net10.0\AleCell.UI.runtimeconfig.json
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\bin\Debug\net10.0\AleCell.UI.dll
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\bin\Debug\net10.0\AleCell.UI.pdb
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\bin\Debug\net10.0\AutoMapper.dll
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.csproj.AssemblyReference.cache
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.AssemblyInfoInputs.cache
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.AssemblyInfo.cs
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.csproj.CoreCompileInputs.cache
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.RazorAssemblyInfo.cache
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.RazorAssemblyInfo.cs
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\rjimswa.dswa.cache.json
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\scopedcss\bundle\AleCell.UI.styles.css
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\compressed\naiykrp2c0-{0}-4ivpqt4ncf-4ivpqt4ncf.gz
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\compressed\0ftid3d2jp-{0}-p81fnit1fx-p81fnit1fx.gz
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\compressed\zyido306m3-{0}-rjzn14z0bp-rjzn14z0bp.gz
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\staticwebassets.build.json
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\staticwebassets.build.json.cache
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\staticwebassets.development.json
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\swae.build.ex.cache
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.csproj.Up2Date
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.dll
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\refint\AleCell.UI.dll
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.pdb
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\AleCell.UI.genruntimeconfig.cache
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\ref\AleCell.UI.dll
+C:\Users\etec\Downloads\AleCell-TCC\AleCell.UI\obj\Debug\net10.0\compressed\hwb2p8opyr-{0}-se1yt314vb-se1yt314vb.gz

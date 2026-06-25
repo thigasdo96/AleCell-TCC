@@ -12,6 +12,28 @@
         </div>
     </div>
 
+    <!-- BARRA DE PESQUISA -->
+    <div class="busca-catalogo-wrap">
+        <div class="busca-catalogo-inner">
+            <svg class="busca-catalogo-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input
+                type="text"
+                id="buscaCatalogo"
+                class="busca-catalogo-input"
+                placeholder="Pesquisar produto..."
+                autocomplete="off"
+                oninput="filtrarProdutos()"
+            />
+            <button class="busca-catalogo-clear" id="btnLimparBusca" onclick="limparBusca()" title="Limpar pesquisa" style="display:none">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
     <div class="filtros-bar">
         <a asp-controller="Home" asp-action="Catalogo"
            class="filtro-btn @(ViewBag.CategoriaSelecionada == 0 ? "ativo" : "")">Todos</a>
@@ -25,14 +47,14 @@
         }
     </div>
 
-    <p class="catalogo-count">@Model.Count produto(s) encontrado(s)</p>
+    <p class="catalogo-count" id="catalogoCount">@Model.Count produto(s) encontrado(s)</p>
 
     @if (Model.Any())
     {
-        <div class="produtos-grid">
+        <div class="produtos-grid" id="produtosGrid">
             @foreach (var prod in Model)
             {
-                <div class="produto-card">
+                <div class="produto-card" data-nome="@prod.Nome.ToLower()" data-desc="@(prod.Descricao?.ToLower() ?? "")">
                     @if (!string.IsNullOrEmpty(prod.CategoriaNome))
                     {
                         <div class="produto-marca-badge">@prod.CategoriaNome</div>
@@ -94,6 +116,14 @@
                 </div>
             }
         </div>
+
+        <div class="empty-state" id="semResultados" style="display:none">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:.3;margin-bottom:.75rem">
+                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <p>Nenhum produto encontrado para "<span id="termoBusca"></span>".</p>
+            <button onclick="limparBusca()" class="btn btn-outline" style="margin-top:.5rem">Limpar pesquisa</button>
+        </div>
     }
     else
     {
@@ -103,3 +133,46 @@
         </div>
     }
 </section>
+
+@section Scripts {
+<script>
+const totalInicial = @Model.Count;
+
+function filtrarProdutos() {
+    const termo = document.getElementById('buscaCatalogo').value.toLowerCase().trim();
+    const cards = document.querySelectorAll('#produtosGrid .produto-card');
+    const btnLimpar = document.getElementById('btnLimparBusca');
+    const semResultados = document.getElementById('semResultados');
+    const count = document.getElementById('catalogoCount');
+    const grid = document.getElementById('produtosGrid');
+
+    btnLimpar.style.display = termo ? 'flex' : 'none';
+
+    let visiveis = 0;
+    cards.forEach(card => {
+        const nome = card.dataset.nome || '';
+        const desc = card.dataset.desc || '';
+        const match = !termo || nome.includes(termo) || desc.includes(termo);
+        card.style.display = match ? '' : 'none';
+        if (match) visiveis++;
+    });
+
+    if (termo && visiveis === 0) {
+        grid.style.display = 'none';
+        semResultados.style.display = 'flex';
+        document.getElementById('termoBusca').textContent = termo;
+        count.textContent = '0 produto(s) encontrado(s)';
+    } else {
+        grid.style.display = '';
+        semResultados.style.display = 'none';
+        count.textContent = visiveis + ' produto(s) encontrado(s)';
+    }
+}
+
+function limparBusca() {
+    document.getElementById('buscaCatalogo').value = '';
+    filtrarProdutos();
+    document.getElementById('buscaCatalogo').focus();
+}
+</script>
+}
